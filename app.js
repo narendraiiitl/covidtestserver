@@ -11,7 +11,9 @@ const upload = multer({ dest: 'uploads/' })
 app.use(express.json());
 app.use(cors());
 
-
+app.get('/', (req, res) => {
+    res.send("started");
+})
 app.post('/', upload.single('image'), (req, res) => {
     var tmp_path = req.file.path;
     var target_path = 'uploads/' + req.file.originalname;
@@ -30,7 +32,7 @@ app.post('/', upload.single('image'), (req, res) => {
             console.log('Upload successful!  Server responded with:', body);
 
             res.send(body);
-        }); 
+        });
     }, 3000)
 })
 app.listen(process.env.PORT || 3000, () => {
