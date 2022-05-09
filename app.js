@@ -29,7 +29,7 @@ app.post('/', upload.single('image'), (req, res) => {
             if (err) {
                 return console.error('upload failed:', err);
             }
-            console.log('Upload successful!  Server responded with:', body);
+            console.log('Upload successful!  responded with:', body);
 
             res.send(body);
         });
